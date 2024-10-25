@@ -1,26 +1,36 @@
-import { obtenerSuperheroePorId, buscarSuperheroesPorAtributo,obtenerSuperheroesMayoresDe30 } from "../repository/superheroesServices.mjs";
-import { renderizarSuperheroe, renderizarListaSuperheroes} from '../views/responseView.mjs';
+import { obtenerSuperheroePorId, buscarSuperheroesPorAtributo, obtenerSuperheroesMayoresDe30 } from "../services/superheroesServices.mjs";
+import { renderizarSuperheroe, renderizarListaSuperheroes } from '../views/responseView.mjs';
 
-export function obtenerSuperheroeporIdController(req, res){
-  const {id} = req.params;
+// Controlador para obtener superhéroe por ID
+export function obtenerSuperheroePorIdController(req, res) {
+  const { id } = req.params;
   const superheroe = obtenerSuperheroePorId(parseInt(id));
   if (superheroe) {
     res.send(renderizarSuperheroe(superheroe));
-  } 
-  else{
+  } else {
     res.status(404).send({ mensaje: "Superheroe no encontrado" });
   }
-
 }
 
-export function buscarSuperheroesPorAtributoController(req, res){
+// Controlador para buscar superhéroes por atributo
+export function buscarSuperheroesPorAtributoController(req, res) {
   const { atributo, valor } = req.params;
   const superheroes = buscarSuperheroesPorAtributo(atributo, valor);
   
-  if (superheroes.leght > 0){
+  if (superheroes.length > 0) {  
     res.send(renderizarListaSuperheroes(superheroes));
-  }
-  else{
+  } else {
     res.status(404).send({ mensaje: "No se encontraron superheroes con ese atributo" });
+  }
+}
+
+// Controlador para obtener superhéroes mayores de 30 con filtros
+export function obtenerSuperheroesMayoresDe30YconFiltrosController(req, res) {
+  const superheroes = obtenerSuperheroesMayoresDe30();
+  
+  if (superheroes.length > 0) {
+    res.send(renderizarListaSuperheroes(superheroes));
+  } else {
+    res.status(404).send({ mensaje: "No se encontraron superheroes mayores de 30 años" });
   }
 }
