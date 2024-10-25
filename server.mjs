@@ -9,9 +9,9 @@ const app = express();
 const PORT = 3005;
 
 // Rutas
-app.get('/superheroes/id/:id', obtenerSuperheroePorIdController);
-app.get('/superheroes/atributo/:atributo/:valor', buscarSuperheroesPorAtributoController); 
-app.get('/superheroes/edad/mayorA30', obtenerSuperheroesMayoresDe30YconFiltrosController);
+app.get('/superheroes/id/:id', obtenerSuperheroePorIdController); // Recibe un ID de superheroe y devuelve los datos de ese superheroe 
+app.get('/superheroes/atributo/:atributo/:valor', buscarSuperheroesPorAtributoController); //Recibe un atributo 
+app.get('/superheroes/edad/mayorA30', obtenerSuperheroesMayoresDe30YconFiltrosController); //Devuelve una lista de superheroes mayores de 30
 
 // Levantar el servidor en el puerto 3005
 app.listen(PORT, () => {

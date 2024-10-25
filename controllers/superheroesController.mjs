@@ -12,7 +12,7 @@ export function obtenerSuperheroePorIdController(req, res) {
   }
 }
 
-// Controlador para buscar superhéroes por atributo
+// Controlador para buscar superheroes por atributo
 export function buscarSuperheroesPorAtributoController(req, res) {
   const { atributo, valor } = req.params;
   const superheroes = buscarSuperheroesPorAtributo(atributo, valor);
@@ -24,7 +24,7 @@ export function buscarSuperheroesPorAtributoController(req, res) {
   }
 }
 
-// Controlador para obtener superhéroes mayores de 30 con filtros
+// Controlador para obtener superheroes mayores de 30 
 export function obtenerSuperheroesMayoresDe30YconFiltrosController(req, res) {
   const superheroes = obtenerSuperheroesMayoresDe30();
   
