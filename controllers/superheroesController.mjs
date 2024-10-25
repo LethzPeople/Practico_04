@@ -25,7 +25,7 @@ export function buscarSuperheroesPorAtributoController(req, res) {
 }
 
 // Controlador para obtener superheroes mayores de 30 
-export function obtenerSuperheroesMayoresDe30(req, res) {
+export function obtenerSuperheroesMayoresDe30Controller(req, res) {
   const superheroes = obtenerSuperheroesMayoresDe30();
   
   if (superheroes.length > 0) {
